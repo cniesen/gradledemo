@@ -1,0 +1,59 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.niesens'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootRun {
+    dependsOn "dependsOnTask"
+    println("In task bootRun in app2")
+	doFirst {
+	    println("In task bootRun.doFirst in app2")
+	}
+	doLast {
+	    println("In task bootRun.doLast in app2")
+	}
+}
+
+task dependsOnTask {
+    println("In task dependsOnTask in app2")
+	doFirst {
+	    println("In task dependsOnTask.doFirst in app2")
+	}
+	doLast {
+	    println("In task dependsOnTask.doLast in app2")
+	}
+}
+
+task app1DepensOnTask {
+    println("In task app1DepensOnTask in app2")
+	doFirst {
+	    println("In task app1DepensOnTask.doFirst in app2")
+	}
+	doLast {
+	    println("In task app1DepensOnTask.doLast in app2")
+	}
+}

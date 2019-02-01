@@ -1,1 +1,3 @@
 rootProject.name = 'gradledemo'
+include 'app1'
+include 'app2'
