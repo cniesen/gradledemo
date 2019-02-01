@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GradledemoApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(GradledemoApplication.class, args);
-		System.out.println("*** The app1 is running ... and that was it already. ***");
+		SpringApplication.run(GradledemoApplication.class, args);
+		System.out.println("*** The app1 is running ... ***");
 	}
 
 }
